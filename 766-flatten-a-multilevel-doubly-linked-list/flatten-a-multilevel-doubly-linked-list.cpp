@@ -25,7 +25,9 @@ public:
                }
                 
             }
-            curr=curr->next;           
+
+            curr=curr->next;
+            
         }
         return head;
     }
