@@ -1,32 +1,31 @@
 class Solution {
 public:
-    bool isPalindrome(const string &s, int left, int right) {
+    bool isPalindrome(const string& s, int left, int right) {
         while (left < right) {
             if (s[left++] != s[right--]) return false;
         }
         return true;
     }
 
-    void backtrack(string &s, int ind, vector<string> &curr, vector<vector<string>> &res) {
-        if (ind == s.size()) {
-            res.push_back(curr);  // add one valid partition
+    void backtrack(int start, string& s, vector<string>& path, vector<vector<string>>& res) {
+        if (start == s.size()) {
+            res.push_back(path);
             return;
         }
 
-        for (int i = ind; i < s.size(); i++) {
-            // if substring s[ind:i] is palindrome, choose it
-            if (isPalindrome(s, ind, i)) {
-                curr.push_back(s.substr(ind, i - ind + 1));
-                backtrack(s, i + 1, curr, res);  // go to next part
-                curr.pop_back();                 // backtrack
+        for (int end = start; end < s.size(); ++end) {
+            if (isPalindrome(s, start, end)) {
+                path.push_back(s.substr(start, end - start + 1));  // ✅ Choose
+                backtrack(end + 1, s, path, res);                  // \U0001f50e Recurse
+                path.pop_back();                                   // \U0001f519 Backtrack
             }
         }
     }
 
     vector<vector<string>> partition(string s) {
         vector<vector<string>> res;
-        vector<string> curr;
-        backtrack(s, 0, curr, res);  // start at index 0
+        vector<string> path;
+        backtrack(0, s, path, res);
         return res;
     }
 };
