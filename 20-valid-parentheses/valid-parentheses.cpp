@@ -36,11 +36,11 @@ public:
                 if(st.empty()) return false;
                 char top = st.top();
                
-
+                     st.pop();
                 if( (c == ')' && top != '(') ||
                     (c == '}' && top != '{') ||
                     (c == ']' && top != '[')) return false;
-                 st.pop();
+                
             }
 
         }
