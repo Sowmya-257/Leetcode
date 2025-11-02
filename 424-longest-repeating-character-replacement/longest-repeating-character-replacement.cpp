@@ -12,11 +12,8 @@ public:
                 freq[s[left]]--;
                 left++;
             }
-
             maxLen = max(maxLen , right-left+1);
-
         }
-
         return maxLen;
     }
 };
