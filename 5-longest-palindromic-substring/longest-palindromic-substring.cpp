@@ -10,7 +10,6 @@ public:
             left--;
             right++;
         }
-        // when while ends, indices are one step beyond valid palindrome
         return s.substr(left + 1, right - left - 1);
     }
 
@@ -21,13 +20,8 @@ public:
         string longest = "";
 
         for (int i = 0; i < n; i++) {
-            // Odd-length palindrome (center at i)
             string odd = expand(s, i, i);
-
-            // Even-length palindrome (center between i and i+1)
             string even = expand(s, i, i + 1);
-
-            // Update longest
             if (odd.size() > longest.size()) longest = odd;
             if (even.size() > longest.size()) longest = even;
         }
