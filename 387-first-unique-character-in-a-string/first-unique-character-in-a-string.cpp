@@ -1,4 +1,3 @@
-
 class Solution {
 public:
     int firstUniqChar(string s) {
@@ -13,14 +12,3 @@ public:
         return -1;
     }
 };
-
-
-
-
-
-
-
-
-
-
-
