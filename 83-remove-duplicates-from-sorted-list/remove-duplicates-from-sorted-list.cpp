@@ -21,7 +21,7 @@ public:
                 curr = curr->next;  // move forward
             }
         }
-
+        
         return head;
     }
 };
