@@ -22,7 +22,7 @@ public:
                     entry = entry->next;
                     slow = slow->next;
                 }
-                return entry;
+                return entry ;
             };
         }
         return NULL;
